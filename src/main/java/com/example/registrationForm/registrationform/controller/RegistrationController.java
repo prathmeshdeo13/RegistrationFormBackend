@@ -1,4 +1,4 @@
-package com.example.registrationForm.registrationform;
+package com.example.registrationForm.registrationform.controller;
 
 import com.example.registrationForm.registrationform.domain.RegistrationForm;
 import com.example.registrationForm.registrationform.repository.RegistrationRepo;
@@ -24,13 +24,12 @@ public class RegistrationController {
         }
     }
 
-        @GetMapping(value ="/getRegistration")
-        public ResponseEntity<?> getRegistration(){
-            try{
-                return new ResponseEntity<>(registrationRepo.findAll(),HttpStatus.OK);
-            }catch (Exception e){
-                return new ResponseEntity<>("Not Fetched Successfully",HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+    @GetMapping(value = "/getRegistration")
+    public ResponseEntity<?> getRegistration() {
+        try {
+            return new ResponseEntity<>(registrationRepo.findAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Not Fetched Successfully", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
+    }
 }
